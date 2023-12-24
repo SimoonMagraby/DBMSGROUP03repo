@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Input Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; 
+      padding: 0; 
+      background: url('Images/background.jpg') center/cover fixed no-repeat; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; 
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.8); 
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="dataForm">
+    <label for="fieldID">Field ID:</label>
+    <input type="text" id="fieldID" name="fieldID" required>
+
+    <label for="fieldName">Field Name:</label>
+    <input type="text" id="fieldName" name="fieldName" required>
+
+    <label for="cropID">Crop ID:</label>
+    <input type="text" id="cropID" name="cropID" required>
+
+    <label for="cropName">Crop Name:</label>
+    <input type="text" id="cropName" name="cropName" required>
+
+    <label for="cropType">Crop Type:</label>
+    <input type="text" id="cropType" name="cropType" required>
+
+    <label for="weatherType">Weather Type:</label>
+    <input type="text" id="weatherType" name="weatherType" required>
+
+    <label for="sensorID">Sensor ID:</label>
+    <input type="text" id="sensorID" name="sensorID" required>
+
+    <label for="sensorDataSoil">Sensor Data for Soil:</label>
+    <input type="text" id="sensorDataSoil" name="sensorDataSoil" required>
+
+    <label for="sensorDataCrop">Sensor Data for Crop:</label>
+    <input type="text" id="sensorDataCrop" name="sensorDataCrop" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById('dataForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var formData = new FormData(this);
+
+      var jsonData = {};
+      formData.forEach(function (value, key) {
+        jsonData[key] = value;
+      });
+
+      console.log(jsonData);
+
+    });
+  </script>
+
+</body>
+</html>
